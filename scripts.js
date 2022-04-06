@@ -1,6 +1,6 @@
 let totalCards;
 let cards = [];
-const gifs = ["images/bobrossparrot.gif","images/explodyparrot.gif","images/fiestaparrot.gif","images/metalparrot.gif","images/revertitparrot.gif","images/tripletsparrot.gif","images/unicornparrot.gif"];
+const gifs = ["images/bobrossparrot.gif", "images/explodyparrot.gif", "images/fiestaparrot.gif", "images/metalparrot.gif", "images/revertitparrot.gif", "images/tripletsparrot.gif", "images/unicornparrot.gif"];
 let count = 0;
 
 while (totalCards % 2 !== 0 || totalCards < 4 || totalCards > 14) {
@@ -9,27 +9,23 @@ while (totalCards % 2 !== 0 || totalCards < 4 || totalCards > 14) {
 
 while (cards.length < totalCards) {
     const divGame = document.querySelector(".game");
-    cards.push(gifs[count]);
-    cards.push(gifs[count]);
-    divGame.innerHTML += 
-    `<div class="card" onclick="turnCard(this)">
-        <div class="face">
-            <img src="images/front.png" />
-        </div>
-        <div class="back-face face"></div>
-    </div>`;
-    divGame.innerHTML += 
-    `<div class="card" onclick="turnCard(this)">
-        <div class="face">
-            <img src="images/front.png" />
-        </div>
-        <div class="back-face face"></div>
-    </div>`;
+    let aux = 0;
+    while (aux < 2) {
+        cards.push(gifs[count]);
+        divGame.innerHTML +=
+            `<div class="card" onclick="turnCard(this)">
+                <div class="face">
+                    <img src="images/front.png" />
+                </div>
+                <div class="back-face face"></div>
+            </div>`;
+        aux++;
+    }
     count++;
 }
 
-function comparador() { 
-	return Math.random() - 0.5; 
+function comparador() {
+    return Math.random() - 0.5;
 }
 
 cards.sort(comparador);
@@ -46,7 +42,7 @@ while (backFaces.length < cards.length) {
 document.querySelector("body").classList.remove("hidden");
 document.querySelector(".back-face").innerHTML = `<img src=${gifs[0]}>`;
 
-function turnCard (el) {
+function turnCard(el) {
     if (el.querySelector(".back-face-turn") !== null) {
         el.querySelector(".back-face-turn").classList.remove("back-face-turn");
         el.querySelector("div").classList.remove("front-face-turn");
