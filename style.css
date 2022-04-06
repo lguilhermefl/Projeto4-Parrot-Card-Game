@@ -52,6 +52,11 @@ h1 {
     transform-style: preserve-3d;
 }
 
+.face img {
+    width: 100px;
+    height: 100px;
+}
+
 .back-face {
     transform: rotateY(180deg);
 }
