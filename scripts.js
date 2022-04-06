@@ -8,11 +8,11 @@ while (totalCards % 2 !== 0 || totalCards < 4 || totalCards > 14) {
 }
 
 while (cards.length < totalCards) {
-    const divGame = document.querySelector(".game");
+    const elGame = document.querySelector(".game");
     let aux = 0;
     while (aux < 2) {
         cards.push(gifs[count]);
-        divGame.innerHTML +=
+        elGame.innerHTML +=
             `<div class="card" onclick="turnCard(this)">
                 <div class="face">
                     <img src="images/front.png" />
@@ -24,11 +24,22 @@ while (cards.length < totalCards) {
     count++;
 }
 
+document.querySelector("body").classList.remove("hidden");
+
 function comparador() {
     return Math.random() - 0.5;
 }
 
 cards.sort(comparador);
+
+for (let i = 0; i < cards.length; i++) {
+    const elBackCard = document.querySelectorAll(".back-face");
+    elBackCard[i].innerHTML = `<img src=${cards[i]}>`;
+}
+
+
+
+
 /*
 while (backFaces.length < cards.length) {
     let backFaces = document.querySelectorAll(".back-face");
@@ -39,8 +50,8 @@ while (backFaces.length < cards.length) {
 }*/
 
 
-document.querySelector("body").classList.remove("hidden");
-document.querySelector(".back-face").innerHTML = `<img src=${gifs[0]}>`;
+
+
 
 function turnCard(el) {
     if (el.querySelector(".back-face-turn") !== null) {
