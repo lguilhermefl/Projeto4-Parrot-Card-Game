@@ -19,10 +19,22 @@ body {
     justify-content: center;
     color: #A7E9AF;
     text-align: center;
+    position: relative;
 }
 
 h1 {
     margin: 40px 0;
+}
+
+.time {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    font-size: 12px;
+    background-color: white;
+    color: black;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 .game {
@@ -35,6 +47,7 @@ h1 {
     width: 117px;
     height: 146px;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .face {
@@ -50,6 +63,7 @@ h1 {
     backface-visibility: hidden;
     transition: all .5s;
     transform-style: preserve-3d;
+    -webkit-transform: translateZ(1px);
 }
 
 .face img {
@@ -74,6 +88,10 @@ h1 {
     .container {
         max-width: 100%;
         padding: 0 22%;
+    }
+
+    h1 {
+        font-size: 56px;
     }
 
     .game {
